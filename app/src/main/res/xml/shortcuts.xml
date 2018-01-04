@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shortcuts xmlns:android="http://schemas.android.com/apk/res/android">
+    <shortcut
+        android:shortcutId="compose"
+        android:enabled="true"
+        android:icon="@drawable/ic_add_black_18dp"
+        android:shortcutShortLabel="@string/add_project"
+        android:shortcutLongLabel="@string/add_project"
+        android:shortcutDisabledMessage="@string/add_project">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.example.jiangmingyu.minilinkedin"
+            android:targetClass="com.example.jiangmingyu.minilinkedin.MainActivity" />
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.example.jiangmingyu.minilinkedin"
+            android:targetClass="com.example.jiangmingyu.minilinkedin.ProjectEditActivity" />
+
+
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list determines what the user sees when
+             they launch this shortcut. -->
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+    <shortcut
+        android:shortcutId="compose1"
+        android:enabled="true"
+        android:icon="@drawable/ic_add_black_18dp"
+        android:shortcutShortLabel="@string/add_education"
+        android:shortcutLongLabel="@string/add_education"
+        android:shortcutDisabledMessage="@string/add_education">
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.example.jiangmingyu.minilinkedin"
+            android:targetClass="com.example.jiangmingyu.minilinkedin.MainActivity" />
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:targetPackage="com.example.jiangmingyu.minilinkedin"
+            android:targetClass="com.example.jiangmingyu.minilinkedin.EducationEditActivity" />
+
+        <!-- If your shortcut is associated with multiple intents, include them
+             here. The last intent in the list determines what the user sees when
+             they launch this shortcut. -->
+        <categories android:name="android.shortcut.conversation" />
+    </shortcut>
+    <!-- Specify more shortcuts here. -->
+</shortcuts>
