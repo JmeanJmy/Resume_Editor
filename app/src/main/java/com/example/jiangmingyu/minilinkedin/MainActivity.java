@@ -1,11 +1,14 @@
 package com.example.jiangmingyu.minilinkedin;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -297,5 +300,41 @@ public class MainActivity extends AppCompatActivity {
         return sb.toString();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_share, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.action_share){
+            share(this);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private void share(Context context) {
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        shareIntent.putExtra(Intent.EXTRA_TEXT, viewInScreen());
+        shareIntent.setType("text/plain");
+        context.startActivity(Intent.createChooser(shareIntent, context.getString(R.string.action_share)));
+    }
+
+    private String viewInScreen() {
+        StringBuilder sb = new StringBuilder();
+        String basic = basicInfo.name + "(" + basicInfo.email + ")" + "\n";
+        sb.append(basic);
+        for (Education edu : educations){
+            String str = edu.school + "(" + edu.startDate + "~" + edu.endDate + ")" + "\n";
+            sb.append(str);
+        }
+        for (Project prj : projects){
+            String str = prj.name + "(" + prj.startDate + "~" + prj.endDate + ")" +"\n";
+            sb.append(str);
+        }
+
+        return  sb.toString().trim();
+    }
 }
