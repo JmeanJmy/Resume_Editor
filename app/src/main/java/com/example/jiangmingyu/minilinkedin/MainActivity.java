@@ -305,7 +305,7 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_share, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
+//
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_share){
